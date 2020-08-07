@@ -23,7 +23,7 @@ int main()
     for(int i=0;i<n;i++)
     {
 		cout<<vect[i].first<<" "<<vect[i].second<<endl;
-	}
+    }
  
 
     return 0;
