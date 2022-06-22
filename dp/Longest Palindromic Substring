@@ -1,0 +1,53 @@
+/**
+
+Longest Palindromic Substring
+
+ * */
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    // Write C++ code here
+    string s = "aaaabbaa";
+    int n = s.length();
+    int table[n][n], mx=1,start=0;
+    
+    string res="";
+    
+    memset(table, 0, sizeof(table));
+    
+    for(int i=0;i<n;i++){
+        table[i][i] = 1;  // for 1 character
+        
+        if(i!=n-1){
+            if(s[i] == s[i+1]){        // for 2 sequenctial character
+                table[i][i+1] = 1;
+                mx = 2;
+                start = i;
+                
+            }
+        }
+    }
+    
+    for(int i=3; i<=n; i++){
+        for(int j=0; j<n-i+1; j++){
+            int k = j+i-1;
+            // s[j] == s[k]   border char
+            // table[j+1][k-1]  non border 
+            if(s[j]==s[k] && table[j+1][k-1]){
+                // cout<<s[j]<<" "<<s[k]<<endl;
+                table[j][k] = 1;
+                
+                if(i>mx){
+                    mx = i;
+                    start = j;
+                }
+            }
+        }
+    }
+    res = s.substr(start,mx);
+    cout<<res<<endl;
+    return 0;
+}
