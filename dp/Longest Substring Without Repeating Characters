@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+int main() {
+
+    string s = "abcabcbb";  // output : 3
+    int ln = s.length(), ans = 0;
+        
+    for(int i=0; i<ln; i++){
+        vector<bool>v(256);
+        
+        for(int j=i; j<ln; j++){
+            
+            if(v[s[j]]==true)
+                break;
+            
+            ans = max(ans,j-i+1);
+            v[s[j]]=true;
+
+            
+        }
+        v[s[i]]=true;
+    }
+    
+    cout<<ans<<endl;
+
+    return 0;
+}
+
