@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+
+/*
+    Overall time complexity = 
+            Time complexity of inserting n elements into hash table + 
+            time complexity of searching n elements twice = n*O(1) + 2*n*O(1) = O(n)
+            
+    space complexity: O(n)hash table
+    
+    Editorial: https://www.enjoyalgorithms.com/blog/longest-consecutive-sequence
+
+*/
+
+
+
+int main() {
+// 	vector<int> arr = {0, -3, 5, -1, 7, -2, -4, 1, 3};
+	vector<int> arr = {0, 3, 7, 2, 5, 8, 4, 6, 0, 2, 1};
+	int ln = arr.size(), finalLength = 0;
+	
+	unordered_set<int> track(arr.begin(), arr.end());
+	
+	for(int it:track){
+	
+	   if(track.find(it-1) == track.end()){
+	       int curElement = it+1;
+	       int curLength = 1;
+	       while(track.find(curElement) != track.end()){
+	           curElement += 1;
+	           curLength += 1;
+	       }
+	       finalLength = max(finalLength,curLength);
+	   }
+	   
+	   
+	}
+	
+	cout<<finalLength<<endl;
+
+	return 0;
+}
