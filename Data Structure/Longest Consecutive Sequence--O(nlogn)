@@ -5,7 +5,7 @@ using namespace std;
 
 /*
     time complexity : O(nlogn)         (sort(nlogn) + n)
-    space complexity: O(1)heap sort / O(n)merge sort .. as we are using constant num of vaiable
+    space complexity: O(1)heap sort / O(n)merge sort
     
     Editorial: https://www.enjoyalgorithms.com/blog/longest-consecutive-sequence
 
