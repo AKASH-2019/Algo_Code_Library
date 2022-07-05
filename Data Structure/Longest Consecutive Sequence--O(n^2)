@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+
+/*
+    time complexity : O(n^2)
+    space complexity: O(1) .. as we are using constant num of vaiable
+    
+    Editorial: https://www.enjoyalgorithms.com/blog/longest-consecutive-sequence
+
+*/
+
+bool searchNext(vector<int> &arr, int ln, int curElement){
+    
+    for(int i=0; i<ln; i++){
+        if(arr[i] == curElement){
+            return true;
+        }
+    }
+    return false;
+}
+
+int main() {
+	vector<int> arr = {0, -3, 5, -1, 7, -2, -4, 1, 3};
+// 	vector<int> arr = {0, 3, 7, 2, 5, 8, 4, 6, 0, 2, 1};
+	int ln = arr.size(), finalLength = 0;
+	
+	for(int i=0; i<ln; i++){
+	    int curElement = arr[i];
+	    int curLength = 1;
+	    
+	    while(searchNext(arr,ln,curElement+1) == true){
+	        curElement = curElement + 1;
+	        curLength = curLength + 1;
+	    }
+	    finalLength = max(curLength,finalLength);
+	}
+	
+	cout<<finalLength<<endl;
+
+	return 0;
+}
