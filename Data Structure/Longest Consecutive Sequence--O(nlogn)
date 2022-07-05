@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+
+/*
+    time complexity : O(nlogn)         (sort(nlogn) + n)
+    space complexity: O(1)heap sort / O(n)merge sort .. as we are using constant num of vaiable
+    
+    Editorial: https://www.enjoyalgorithms.com/blog/longest-consecutive-sequence
+
+*/
+
+int logestConsecutiveSequence(vector<int> &arr, int ln){
+    int finalLength =0, curLength = 1;
+    
+    for(int i=1; i<ln; i++){
+        if(arr[i-1] != arr[i]){
+            if(arr[i] == arr[i-1]+1){
+                curLength += 1;
+            }else {
+                finalLength = max(curLength,finalLength);
+                curLength = 1;
+            }
+        }
+    }
+    
+    
+    return max(finalLength,curLength);
+}
+
+int main() {
+// 	vector<int> arr = {0, -3, 5, -1, 7, -2, -4, 1, 3};
+	vector<int> arr = {0, 3, 7, 2, 5, 8, 4, 6, 0, 2, 1};
+	int ln = arr.size(), finalLength = 0;
+	
+	sort(arr.begin(), arr.end());
+	cout<<logestConsecutiveSequence(arr,ln)<<endl;
+
+	return 0;
+}
