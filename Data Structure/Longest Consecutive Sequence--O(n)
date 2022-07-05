@@ -23,7 +23,7 @@ int main() {
 	
 	unordered_set<int> track(arr.begin(), arr.end());
 	
-	for(int it:track){
+	for(int it:arr){
 	
 	   if(track.find(it-1) == track.end()){
 	       int curElement = it+1;
