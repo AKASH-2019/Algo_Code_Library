@@ -149,4 +149,12 @@ note:
 
 */
 
+/*
+Problem-------
+http://codeforces.com/contest/20/problem/C
+https://lightoj.com/problem/not-the-best
+https://lightoj.com/problem/new-traffic-system
+https://practice.geeksforgeeks.org/problems/shortest-path-in-a-binary-maze-1655453161/1   (don,t need pq...eversy edge has same weight)
+*/
+
 
