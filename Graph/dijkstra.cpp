@@ -21,6 +21,9 @@ int main() {
 	
 	priority_queue<pair<int,int>, vector<pair<int,int> >, greater<pair<int,int> > >pq; // dist,node
 	vector<int> dis(n+1,INT_MAX);
+	vector<int>parent(n + 1);
+	for (int i = 1; i <= n; i++)
+	    parent[i] = i;
 	
 	dis[src] = 0;
 	pq.push(make_pair(0,src));
@@ -37,10 +40,29 @@ int main() {
 	        if(dis[next] > dis[prevnode]+nextdist){
 	            dis[next] = (dis[prevnode]+nextdist);
 	            pq.push(make_pair(dis[next], next));
+	            parent[next] = prevnode;
 	        }
 	    }
 	}
 	
+	vector<int> path;
+	int node = n;
+	while (parent[node] != node)
+	{
+	path.push_back(node);
+	node = parent[node];
+	}
+	path.push_back(1);
+
+	reverse(path.begin(), path.end());
+
+	cout<<"Pathe from 1 to n "<<endl;
+	for (int i = 0; i < path.size(); i++)
+	{
+	cout << path[i] << " ";
+	}
+
+	cout<<endl<<"Distance from source to all node"<<endl;
 	for(int i=1; i<dis.size(); i++){
 	    cout<<"src "<<src<<" -> "<<i<<" "<<dis[i]<<endl;
 	}
@@ -126,6 +148,5 @@ note:
 
 
 */
-
 
 
