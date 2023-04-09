@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int reverseSum(int num){
+    if(num <= 0){
+        return 1;     // 21
+        // return 3;   //add (3-1)   // 23
+        // return 5;      // add (5-1)  // 25
+    }
+    return (num%10+reverseSum(num/10));
+}
+
+int main() {
+
+    cout<<reverseSum(123450041);
+
+    return 0;
+}

@@ -1,0 +1,39 @@
+// reverse string by recursion fuction with return final string
+// tc: recursion call length(n) of string -> O(n)
+
+#include <bits/stdc++.h>
+using namespace std;
+
+/*
+string res="";
+string reverse(string s, int ln){
+    if(ln == s.length()){
+        return res;
+    }
+    reverse(s,ln+1);
+    res += s[ln];
+    return res;
+}
+
+int main() {
+    cout<<reverse("akash",0)<<endl;;
+    cout<<reverse("reverse_string",0)<<endl;
+
+    return 0;
+}
+*/
+string reverseString(string s, int n){
+    if(n<0){
+        return "";
+    }
+    
+    return s[n]+reverseString(s, n-1);
+}
+
+int main() {
+    string s = "Hello world!";
+    cout<<s.length()<<endl;
+    string res = reverseString(s, s.length()-1);
+    cout<<res<<" "<<res.length()<<endl;
+    return 0;
+}

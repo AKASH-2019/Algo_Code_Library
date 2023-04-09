@@ -1,0 +1,17 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+string res="";
+int gcd(int a, int b){
+    if(a==0){
+        return b;
+    }
+    gcd(b%a,a);
+}
+
+int main() {
+    
+    cout<<gcd(16,12)<<endl;
+
+    return 0;
+}
