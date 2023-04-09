@@ -33,11 +33,13 @@ void merge(vector<int>& nums,int l,int mid,int r){
 
 void mergeSort(vector<int>& nums, int l, int r){
     if(l>=r){        // l == r during the recursive calls, then the sub-array has one element left, which is trivially sorted
+        //cout<<l<<" "<<r<<endl;
         return;
     }
     int mid = l+(r-l)/2;       // got through this blog: https://ai.googleblog.com/2006/06/extra-extra-read-all-about-it-nearly.html
     mergeSort(nums,l,mid);
     mergeSort(nums,mid+1,r);
+    //cout<<l<<" "<<r<<endl;
     merge(nums,l,mid,r);
 }
 
