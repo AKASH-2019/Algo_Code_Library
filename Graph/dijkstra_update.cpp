@@ -43,6 +43,7 @@ int main() {
 	    for(auto it:adj[prevnode]){
 	        int next = it.first;
 	        int nextdist = it.second;
+		// ...........................relaxation...............................
 	        if(dis[next] > dis[prevnode]+nextdist){
 	            dis[next] = (dis[prevnode]+nextdist);
 	            pq.push(make_pair(dis[next], next));
